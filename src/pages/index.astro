@@ -4,8 +4,12 @@ import Calendar from "../components/Calendar.astro";
 ---
 
 <Layout title="Баарыбиршоп Аманя">
+  <header class="head">
+    <h1>Барбер</h1>
+    <img alt="фотка" width="90" src="aaa.png" />
+    <h1>Аманя</h1>
+  </header>
   <main>
-    <h1 class="head">Баарыбиршоп Аманя</h1>
     <div class="queues">
       <Calendar />
       <Calendar title="Завтра" />
@@ -23,8 +27,14 @@ import Calendar from "../components/Calendar.astro";
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('wall.png');
+    background-color: brown;
 
-    background: linear-gradient(to right, #e965ad, #f15787, #ed525f, #df5737);
+    /* background-color: linear-gradient(to right, #e965ad, #f15787, #ed525f, #df5737); */
+  }
+
+  .head img {
+    object-fit: contain;
   }
   main {
     height: 100vh;
