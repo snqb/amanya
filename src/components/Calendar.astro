@@ -1,54 +1,113 @@
 ---
+import * as R from "remeda";
+import { randomString } from "remeda";
+import { createAvatar } from "@dicebear/avatars";
+import * as style from "@dicebear/open-peeps";
+
+const { title } = Astro.props;
+
+const getAvatar = (name: string) =>
+  createAvatar(style, {
+    seed: name,
+  });
+
+/** @example [18, 30] = 18:30 */
+type Time = [number, number];
+
+/**  @example [[18, 30], [19,30]] = 18:30-19:30 */
+type TimeSpan = [Time, Time];
+
+interface Slot {
+  timeSpan: TimeSpan;
+  who: string;
+  phone: string;
+}
+
+const names = [
+  "Чика",
+  "Алмаз",
+  "Эмир",
+  "Улук",
+  "Була",
+  "Бека",
+  "Анвар",
+  "Замир байке",
+  "Anish",
+  "Gukesh",
+  "Серёга",
+  "Улушка",
+];
+
+const slots = R.pipe(
+  R.range(10, 21),
+  R.map<number, Slot>((it) => ({
+    timeSpan: [
+      [it, 0],
+      [it + 1, 0],
+    ],
+    who: names[Math.floor(Math.random() * names.length)],
+    phone: randomString(10),
+  }))
+);
 ---
 
 <div class="calendar">
-  <div class="columns">
-    <div>
-      <h2>Бүгүн</h2>
-      <ul>
-        <li>9:00 - Диас</li>
-        <li>10:00 - <a href="#">бош</a></li>
-        <li>11:00- Anish</li>
-        <li>12:00- Абу</li>
-        <li>13:00 - <a href="#">бош</a></li>
-        <li>14:00 - Чика</li>
-        <li>15:00 - <u>обед</u></li>
-        <li>16:00 - <a href="#">бош</a></li>
-        <li>17:00 - <a href="#">бош</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Эртең</h2>
-      <ul>
-        <li>9:00 - Азат байке</li>
-        <li>10:00 - <a href="#">бош</a></li>
-        <li>11:00 - <a href="#">бош</a></li>
-        <li>12:00 - <a href="#">бош</a></li>
-        <li>13:00 - Эся</li>
-        <li>14:00 - <a href="#">бош</a></li>
-        <li>15:00 - <a href="#">бош</a></li>
-        <li>16:00 - <a href="#">бош</a></li>
-        <li>17:00 - <a href="#">бош</a></li>
-      </ul>
-    </div>
-  </div>
+  <h2>{title ?? "Сегодня"}</h2>
+  <ul>
+    {
+      slots.map((slot, i) => (
+        <>
+          <li class="time-span">
+            {Math.random() > 0.5 ? (
+              <>
+                <span class="time">{slot.timeSpan[0][0]}</span>
+                <div class="avatar" set:html={getAvatar(slot.who)} />
+                <p class="name">{slot.who}</p>
+              </>
+            ) : (
+              <>
+                <span class="time">{slot.timeSpan[0][0]}</span>
+                <span class="time" />
+                <a href="#">записаться</a>
+              </>
+            )}
+          </li>
+        </>
+      ))
+    }
+  </ul>
 </div>
+
 <style>
   .calendar {
-    padding: 0.15rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 65vw;
+    padding: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -2px rgba(0, 0, 0, 0.1);
-
-    left: 15%;
-    height: 30vh;
-    bottom: 15%;
-    position: absolute;
-    width: 80vw;
-    background: white;
   }
 
-  .columns {
+  .time-span {
     display: flex;
+    align-items: center;
+
+    min-height: 60px;
+    gap: 4px;
+  }
+
+  .avatar {
+    width: 48px;
+  }
+
+  .time {
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .name {
+    font-size: large;
+    font-variant-caps: petite-caps;
   }
 
   h2 {
@@ -59,6 +118,13 @@
 
   ul {
     margin: 0.25rem 0;
-    padding: 0 1.5rem;
+    padding: 0 0.25rem;
+
+    list-style-type: none;
+    gap: 10px;
+  }
+
+  li {
+    display: flex;
   }
 </style>
