@@ -13,12 +13,6 @@ function getRandom<T>(items: T): keyof T {
   const keys = Object.keys(items) as (keyof T)[];
   return keys[(keys.length * Math.random()) | 0];
 }
-
-const colors = ["#b46c6c", "brown", "black", "rebeccapurple"];
-
-const getRandomColor = () => {
-  return colors[(colors.length * Math.random()) | 0];
-};
 ---
 
 <Peep
@@ -33,7 +27,7 @@ const getRandomColor = () => {
   face={getRandom(Face)}
   facialHair={getRandom(FacialHair)}
   accessory={getRandom(Accessories)}
-  strokeColor={getRandomColor()}
-  backgroundColor="#eee"
+  strokeColor="black"
+  backgroundColor="transparent"
   wrapperBackground="transparent"
 />
