@@ -14,11 +14,11 @@
     "@astrojs/react": "^1.2.2",
     "@astrojs/vercel": "^2.2.0",
     "@fontsource/aldrich": "^4.5.7",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "~17",
+    "@types/react-dom": "~17",
     "astro": "^1.6.7",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "~17",
+    "react-dom": "~17",
     "react-peeps": "^0.1.10",
     "remeda": "^1.2.0"
   }
