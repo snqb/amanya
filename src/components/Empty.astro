@@ -1,0 +1,40 @@
+---
+const { timeSlot } = Astro.props;
+
+---
+
+<li class="empty">
+  <span class="time">{timeSlot.timeSpan[0][0]}</span>
+  <input type="text" class="me" placeholder="как звать?" />
+</li>
+
+<style>
+  .empty {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    padding: 24px 12px;
+    gap: 12px;
+  }
+
+  .me {
+    font-size: medium;
+    color: #b05f5f * 1.1;
+    font-variant-caps: petite-caps;
+    font-weight: 600;
+    text-decoration-style: dotted;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    border-bottom-style: dotted;
+    border-bottom-color: #b05f5f;
+    outline: none;
+  }
+
+  .time {
+    font-size: x-large;
+  }
+</style>
