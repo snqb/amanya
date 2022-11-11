@@ -1,12 +1,12 @@
 ---
-// import RandomPeep from "./RandomPeep";
+import RandomPeep from "./RandomPeep";
 
 const { timeSlot } = Astro.props;
 ---
 
 <li class="time-span">
   <span class="time">{timeSlot.timeSpan[0][0]}</span>
-  <!-- <RandomPeep size={120} rotation={-90} /> -->
+  <RandomPeep size={120} rotation={-90} />
   <p class="name">{timeSlot.who}</p>
 </li>
 

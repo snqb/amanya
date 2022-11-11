@@ -1,4 +1,14 @@
-import Peep, { Accessories, Face, FacialHair, Hair, StandingPose } from "react-peeps";
+import Peepola, {
+  Accessories,
+  Face,
+  FacialHair,
+  Hair,
+  StandingPose,
+} from "react-peeps";
+
+// below is a hack because Vite is broken
+// @ts-ignore
+const Peep = Peepola.default ? Peepola.default : Peepola;
 
 function getRandom<T>(items: T): keyof T {
   const keys = Object.keys(items) as (keyof T)[];
