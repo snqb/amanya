@@ -1,11 +1,6 @@
 ---
-import Peep, {
-  Accessories,
-  Face,
-  FacialHair,
-  Hair,
-  StandingPose,
-} from "react-peeps";
+import { Accessories, Face, FacialHair, Hair, StandingPose } from "react-peeps";
+import * as Peep from "react-peeps";
 
 const { size, rotation } = Astro.props;
 
@@ -15,7 +10,7 @@ function getRandom<T>(items: T): keyof T {
 }
 ---
 
-<Peep
+<Peep.default
   style={{
     width: "auto",
     height: size,
