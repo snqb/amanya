@@ -1,0 +1,39 @@
+---
+import Peep, {
+  Accessories,
+  Face,
+  FacialHair,
+  Hair,
+  StandingPose,
+} from "react-peeps";
+
+const { size, rotation } = Astro.props;
+
+function getRandom<T>(items: T): keyof T {
+  const keys = Object.keys(items) as (keyof T)[];
+  return keys[(keys.length * Math.random()) | 0];
+}
+
+const colors = ["#b46c6c", "brown", "black", "rebeccapurple"];
+
+const getRandomColor = () => {
+  return colors[(colors.length * Math.random()) | 0];
+};
+---
+
+<Peep
+  style={{
+    width: "auto",
+    height: size,
+    transform: `rotate(${rotation}deg)`,
+  }}
+  viewBox={{ x: "-550", y: "-200", width: "1800", height: "3200" }}
+  body={getRandom(StandingPose)}
+  hair={getRandom(Hair)}
+  face={getRandom(Face)}
+  facialHair={getRandom(FacialHair)}
+  accessory={getRandom(Accessories)}
+  strokeColor={getRandomColor()}
+  backgroundColor="#eee"
+  wrapperBackground="transparent"
+/>

@@ -1,0 +1,39 @@
+---
+import RandomPeep from "./RandomPeep.astro";
+
+const { timeSlot } = Astro.props;
+---
+
+<li class="time-span">
+  <span class="time">{timeSlot.timeSpan[0][0]}</span>
+  <RandomPeep size={120} rotation={-90} />
+  <p class="name">{timeSlot.who}</p>
+</li>
+
+<style>
+  .time-span {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    min-height: 60px;
+    height: 70px;
+    gap: 8px;
+  }
+
+  .avatar {
+    width: 60px;
+    transform: scale(3);
+  }
+
+  .time {
+    font-size: x-large;
+    font-weight: bold;
+  }
+
+  .name {
+    font-size: medium;
+    font-variant-caps: petite-caps;
+    transform: rotate(-90deg);
+  }
+</style>
