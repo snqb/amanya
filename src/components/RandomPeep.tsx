@@ -1,5 +1,4 @@
-import { Accessories, Face, FacialHair, Hair, StandingPose } from "react-peeps";
-import * as Peep from "react-peeps";
+import Peep, { Accessories, Face, FacialHair, Hair, StandingPose } from "react-peeps";
 
 function getRandom<T>(items: T): keyof T {
   const keys = Object.keys(items) as (keyof T)[];
@@ -8,7 +7,7 @@ function getRandom<T>(items: T): keyof T {
 
 const RandomPeep = ({ size, rotation }) => {
   return (
-    <Peep.default
+    <Peep
       style={{
         width: "auto",
         height: size,

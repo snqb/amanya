@@ -1,6 +1,5 @@
 ---
 import * as R from "remeda";
-import { randomString } from "remeda";
 import TimeSpan from "./TimeSpan.astro";
 
 const { title } = Astro.props;
@@ -40,7 +39,7 @@ const slots = R.pipe(
       [it + 1, 0],
     ],
     who: names[it % names.length],
-    phone: randomString(10),
+    phone: R.randomString(10),
   }))
 );
 ---
