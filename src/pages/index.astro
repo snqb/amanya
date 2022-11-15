@@ -5,9 +5,11 @@ import Calendar from "../components/Calendar.astro";
 
 <Layout title="Баарыбиршоп Аманя">
   <header class="head">
-    <h1>Барбер</h1>
-    <img alt="фотка" width="90" src="aaa.png" />
-    <h1>Аманя</h1>
+    <div class="head-inner">
+      <h1>Барбер</h1>
+      <img alt="фотка" src="amanya.gif" />
+      <h1>Аманя</h1>
+    </div>
   </header>
   <main>
     <div class="queues">
@@ -19,22 +21,36 @@ import Calendar from "../components/Calendar.astro";
 </Layout>
 
 <style>
+  :root {
+    --aman-size: 10rem;
+    --half-aman-size: 4rem;
+    --difference-of-sizes: calc(var(--aman-size) - var(--half-aman-size));
+  }
   .head {
-    margin: 0;
-    width: 100%;
-    height: 10vh;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('wall.png');
-    background-color: brown;
+    background-color: darkred;
+    color: white;
+    font-variant-caps: small-caps;
 
-    /* background-color: linear-gradient(to right, #e965ad, #f15787, #ed525f, #df5737); */
+    position: sticky;
+    top: calc(var(--difference-of-sizes) * -1);
+  }
+
+  .head h1 {
+    margin: 4px;
+  }
+
+  .head-inner {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
   }
 
   .head img {
-    object-fit: contain;
+    object-fit: cover;
+    height: var(--aman-size);
   }
   main {
     height: 100vh;
@@ -49,10 +65,6 @@ import Calendar from "../components/Calendar.astro";
 
     overflow-x: auto;
     overflow-y: hidden;
-  }
-
-  .amanya {
-    object-fit: cover;
   }
   h2 {
     color: white;
