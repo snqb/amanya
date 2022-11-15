@@ -13,7 +13,7 @@ import Calendar from "../components/Calendar.astro";
   </header>
   <main>
     <div class="queues">
-      <Calendar />
+      <Calendar title="сегодня" />
       <Calendar title="завтра" />
       <Calendar title="послезавтра" />
     </div>
@@ -23,7 +23,7 @@ import Calendar from "../components/Calendar.astro";
 <style>
   :root {
     --wrapper-size: 7rem;
-    --aman-size: 5rem;
+    --aman-size: 4rem;
     --difference-of-sizes: calc(var(--wrapper-size) - var(--aman-size));
   }
   .head {
@@ -38,6 +38,8 @@ import Calendar from "../components/Calendar.astro";
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin-bottom: 12px;
   }
 
   .head h1 {
