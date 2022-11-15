@@ -22,17 +22,22 @@ import Calendar from "../components/Calendar.astro";
 
 <style>
   :root {
-    --aman-size: 10rem;
-    --half-aman-size: 4rem;
-    --difference-of-sizes: calc(var(--aman-size) - var(--half-aman-size));
+    --wrapper-size: 8rem;
+    --aman-size: 4rem;
+    --difference-of-sizes: calc(var(--wrapper-size) - var(--aman-size));
   }
   .head {
     background-color: darkred;
     color: white;
     font-variant-caps: small-caps;
 
+    height: var(--wrapper-size);
     position: sticky;
     top: calc(var(--difference-of-sizes) * -1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .head h1 {
@@ -42,7 +47,7 @@ import Calendar from "../components/Calendar.astro";
   .head-inner {
     position: sticky;
     top: 0;
-
+    height: var(--aman-size);
     display: flex;
     align-items: flex-end;
     justify-content: center;
