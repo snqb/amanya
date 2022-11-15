@@ -1,5 +1,5 @@
 ---
-import RandomPeep from "./RandomPeep";
+import RandomPeep from "./RandomPeep.astro";
 
 const { timeSlot } = Astro.props;
 ---
@@ -19,6 +19,8 @@ const { timeSlot } = Astro.props;
     min-height: 60px;
     height: 70px;
     gap: 8px;
+
+    filter: opacity(0.5);
   }
 
   .time {
