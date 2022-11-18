@@ -1,39 +1,103 @@
 ---
+import PeepGenerator from "./PeepGenerator";
+import RandomPeep from "./RandomPeep.astro";
+
 const { timeSlot } = Astro.props;
 ---
 
 <li class="empty">
-  <span class="time">{timeSlot.timeSpan[0][0]}</span>
-  <input type="text" class="me" placeholder="как звать?" />
+  <span class="time">{timeSlot.timeSpan[0][0]}:00</span>
+  <form>
+    <input id="name" class="me" type="text" placeholder="как звать?" />
+
+    <span class="hidden-while-non-focused">
+      <input
+        id="phone"
+        class="me"
+        type="tel"
+        required
+        pattern="[0-9]{9,}"
+        placeholder="телефон"
+      />
+      <PeepGenerator client:only="react" size={180} />
+
+      <button class="me" type="submit">Записаться</button>
+    </span>
+  </form>
+
+  <style>
+    .empty {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-evenly;
+
+      padding: 12px;
+      gap: 12px;
+    }
+
+    .empty form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 16px;
+    }
+
+    .hidden-while-non-focused {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+    }
+
+    .empty:focus-within .hidden-while-non-focused {
+      display: flex;
+      gap: 16px;
+      opacity: 1;
+    }
+
+    .empty:focus-within {
+      position: fixed;
+      top: var(--aman-size);
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: whitesmoke;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      gap: 42px;
+
+      transition: height 2s linear;
+    }
+
+    .me {
+      font-size: medium;
+      color: #b05f5f * 1.1;
+      font-variant-caps: petite-caps;
+      font-weight: 600;
+      text-decoration-style: dotted;
+
+      border-top: none;
+      border-left: none;
+      border-right: none;
+
+      border-bottom-style: dotted;
+      border-bottom-color: #b05f5f;
+      outline: none;
+      padding: 16px;
+    }
+
+    .time {
+      font-size: x-large;
+    }
+  </style>
 </li>
-
-<style>
-  .empty {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
-    padding: 12px;
-    gap: 12px;
-  }
-
-  .me {
-    font-size: medium;
-    color: #b05f5f * 1.1;
-    font-variant-caps: petite-caps;
-    font-weight: 600;
-    text-decoration-style: dotted;
-
-    border-top: none;
-    border-left: none;
-    border-right: none;
-
-    border-bottom-style: dotted;
-    border-bottom-color: #b05f5f;
-    outline: none;
-  }
-
-  .time {
-    font-size: x-large;
-  }
-</style>

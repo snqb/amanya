@@ -17,6 +17,14 @@ function getRandom<T>(items: T): keyof T {
   const keys = Object.keys(items) as (keyof T)[];
   return keys[(keys.length * Math.random()) | 0];
 }
+
+let randomSet = {
+  body: getRandom(StandingPose),
+  hair: getRandom(Hair),
+  face: getRandom(Face),
+  facialHair: getRandom(FacialHair),
+  accessory: getRandom(Accessories),
+};
 ---
 
 <Peep
@@ -26,12 +34,18 @@ function getRandom<T>(items: T): keyof T {
     transform: `rotate(${rotation}deg)`,
   }}
   viewBox={{ x: "-550", y: "-200", width: "1800", height: "3200" }}
-  body={getRandom(StandingPose)}
-  hair={getRandom(Hair)}
-  face={getRandom(Face)}
-  facialHair={getRandom(FacialHair)}
-  accessory={getRandom(Accessories)}
-  strokeColor="black"
+  {...randomSet}
+  onClick={() => {
+    console.log('hey')
+    randomSet = {
+      body: getRandom(StandingPose),
+      hair: getRandom(Hair),
+      face: getRandom(Face),
+      facialHair: getRandom(FacialHair),
+      accessory: getRandom(Accessories),
+    };
+  }}
+  strokeColor="#4d4d4d"
   backgroundColor="transparent"
   wrapperBackground="transparent"
 />

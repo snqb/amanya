@@ -14,12 +14,15 @@
     "@astrojs/react": "^1.2.2",
     "@astrojs/vercel": "^2.2.0",
     "@fontsource/aldrich": "^4.5.7",
+    "@nanostores/react": "^0.4.0",
     "@types/react": "~17",
     "@types/react-dom": "~17",
     "astro": "^1.6.7",
+    "nanostores": "^0.7.1",
     "react": "~17",
     "react-dom": "~17",
     "react-peeps": "^0.1.10",
-    "remeda": "^1.2.0"
+    "remeda": "^1.2.0",
+    "riso-colors": "^1.0.1"
   }
 }

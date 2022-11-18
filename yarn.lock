@@ -708,6 +708,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nanostores/react@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@nanostores/react@npm:0.4.0"
+  dependencies:
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    nanostores: ^0.7.0
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  checksum: 0252993e821f81e695c97a0e8f3b2baeacf9b2c1fb14c9fe76b5d0485aa584f9ed907416fa4bba08a297b5f315c4de3a7bfd481804f462eb7fb61587439fa4f8
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -1095,13 +1108,16 @@ __metadata:
     "@astrojs/react": ^1.2.2
     "@astrojs/vercel": ^2.2.0
     "@fontsource/aldrich": ^4.5.7
+    "@nanostores/react": ^0.4.0
     "@types/react": ~17
     "@types/react-dom": ~17
     astro: ^1.6.7
+    nanostores: ^0.7.1
     react: ~17
     react-dom: ~17
     react-peeps: ^0.1.10
     remeda: ^1.2.0
+    riso-colors: ^1.0.1
   languageName: unknown
   linkType: soft
 
@@ -4129,6 +4145,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanostores@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "nanostores@npm:0.7.1"
+  checksum: 29aeb45893afa97436e65da513bdaa3240747f191c38d982dc7d7a4340063f0a05acc3da388b967d97c9cb52852ac5c7b7b8d80efb7b00a4c3c95bdd233f92e9
+  languageName: node
+  linkType: hard
+
 "negotiator@npm:^0.6.3":
   version: 0.6.3
   resolution: "negotiator@npm:0.6.3"
@@ -4899,6 +4922,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"riso-colors@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "riso-colors@npm:1.0.1"
+  checksum: fc3185d9cc4fc50840bbdb6af3b4c6b062b6055b2d9165007e0af58ffb647dd09526c39eb9d6bab58b3cd58c0abbc59ba67e0a5fc634b5ee903b35f7ad000df1
+  languageName: node
+  linkType: hard
+
 "roarr@npm:^2.15.3":
   version: 2.15.4
   resolution: "roarr@npm:2.15.4"
@@ -5639,6 +5669,15 @@ __metadata:
   bin:
     browserslist-lint: cli.js
   checksum: 12db73b4f63029ac407b153732e7cd69a1ea8206c9100b482b7d12859cd3cd0bc59c602d7ae31e652706189f1acb90d42c53ab24a5ba563ed13aebdddc5561a0
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 
