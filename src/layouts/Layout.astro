@@ -6,6 +6,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
 ---
 
 <!DOCTYPE html>
@@ -19,6 +20,13 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <header>
+      <div id="sticky-amanya-header-hack">
+        <h1>Барбер</h1>
+        <img alt="фотка" src="amanya.gif" />
+        <h1>Аманя</h1>
+      </div>
+    </header>
     <slot />
     <style is:global>
       :root {
@@ -36,16 +44,49 @@ const { title } = Astro.props;
         background-color: #f6f6f6;
 
         scroll-padding-top: 40vh;
-
-      }
-      code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
       }
 
       body {
         margin: 0;
         font-family: "Aldrich", sans-serif;
+      }
+
+      header {
+        z-index: 10;
+        background: url("shyrdak.jpg"), darkred;
+        background-blend-mode: color-burn;
+        transition: background-blend-mode 0.5s;
+        background-size: cover;
+        color: white;
+        font-variant-caps: small-caps;
+
+        height: var(--wrapper-size);
+        position: sticky;
+        top: calc(var(--difference-of-sizes) * -1);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 12px;
+      }
+
+      header h1 {
+        margin: 4px;
+      }
+
+      header img {
+        object-fit: cover;
+        height: var(--aman-size);
+      }
+
+      header #sticky-amanya-header-hack {
+        position: sticky;
+        top: 0;
+        height: var(--aman-size);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
       }
     </style>
   </body>
